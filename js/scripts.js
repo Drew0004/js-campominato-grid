@@ -17,15 +17,19 @@ myButton.addEventListener ('click', function(){
     for (let i = 1; i <= 100; i++){
         
         const cell = document.createElement('div');
-        cell.classList.add('square','bg-warning', 'd-flex', 'justify-content-center', 'align-items-center', 'm-3');
-
+        cell.classList.add('square' , 'd-flex', 'justify-content-center', 'align-items-center','border', 'border-dark');
         cell.innerHTML = i;
-        
         myGrid.append(cell);
 
-        // console.log (cell);
+        cell.addEventListener('click', function(){
+            this.classList.toggle('bg-primary');
+
+            console.log (this.innerHTML=i);
+        });
     }
-
-
-
+    
 });
+
+    
+
+
