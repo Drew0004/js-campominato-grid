@@ -2,33 +2,43 @@ const myButton = document.getElementById('special-button');
 
 const myGrid = document.getElementById('grid-container');
 
-let game = false;
+const mySelect = document.getElementById('my-select');
+
+let cell;
+
 
 myButton.addEventListener ('click', function(){
 
-    game = true;
+    myGrid.innerHTML='';
 
-    if(game == true){
 
-        myGrid.innerHTML='';
-        
-    }
+    let selectedValue = parseInt(mySelect.value);
+
+    stampCells(selectedValue, myGrid);
     
-    for (let i = 1; i <= 100; i++){
-        
-        const cell = document.createElement('div');
-        cell.classList.add('square' , 'd-flex', 'justify-content-center', 'align-items-center','border', 'border-dark');
-        cell.innerHTML = i;
-        myGrid.append(cell);
+});
 
-        cell.addEventListener('click', function(){
+// Funzione
+function stampCells (value, container){
+    for (let i = 1; i <= value; i++){
+
+        const item = document.createElement('div');
+        item.classList.add('square','d-flex' , 'justify-content-center', 'align-items-center','border', 'border-dark');
+        item.innerHTML = i;
+        container.append(item);
+        
+
+        item.addEventListener('click', function(){
             this.classList.toggle('bg-primary');
 
             console.log (this.innerHTML=i);
         });
+
+
     }
-    
-});
+}
+
+
 
     
 
